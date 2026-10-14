@@ -35,9 +35,21 @@ Chauffer le ballon d'eau chaude avec le surplus solaire, puissance modulée de 0
 
 ## Réglages
 
-- Shelly : mode **1-10V**, min brightness on toggle **0**.
-- Le LSA ne chauffe qu'entre **~30 % et 90 %** du Shelly (≈ 100 W à 2200 W).
+- Shelly : mode **1-10V**, min brightness on toggle **0**, pas de remapping min/max.
 - Régulation HA : toutes les 20 s, ajuster le Shelly pour garder ~200 W d'injection. Point de départ : [YaSolR de Mathieu Carbou](https://yasolr.carbou.me/blog/2024-07-01_shelly_solar_diverter).
+
+## Calibrage du Dimmer
+
+Le LSA ne réagit pas sur toute la course du Shelly : il faut trouver la plage utile.
+
+Ballon **froid** (le thermostat doit demander de la chauffe), ampoule de test validée avant.
+
+1. Régler le Shelly à 10, 20, 25, 30, 35, 40, 50… 100 %, attendre 10 s à chaque palier.
+2. Noter la puissance consommée (mesure réseau ou pince).
+3. **Seuil bas** = premier % où ça chauffe (~100 W).
+4. **Seuil haut** = % au-delà duquel la puissance n'augmente plus.
+
+Chez moi : **≈ 100 W à 30 %**, ≈ +38 W par %, **plein régime vers 90 %**. La régulation HA travaille uniquement entre ces deux valeurs.
 
 ## Sécurité
 
