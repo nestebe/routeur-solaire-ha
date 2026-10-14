@@ -38,18 +38,18 @@ Chauffer le ballon d'eau chaude avec le surplus solaire, puissance modulée de 0
 - Shelly : mode **1-10V**, min brightness on toggle **0**, pas de remapping min/max.
 - Régulation HA : toutes les 20 s, ajuster le Shelly pour garder ~200 W d'injection. Point de départ : [YaSolR de Mathieu Carbou](https://yasolr.carbou.me/blog/2024-07-01_shelly_solar_diverter).
 
-## Calibrage du Dimmer
+## Calibrer le Dimmer
 
-Le LSA ne réagit pas sur toute la course du Shelly : il faut trouver la plage utile.
+Le LSA ne chauffe pas sur toute la plage du Shelly. Il faut repérer à partir de quel pourcentage il commence à chauffer, et à partir duquel il est à fond.
 
-Ballon **froid** (le thermostat doit demander de la chauffe), ampoule de test validée avant.
+Fais-le avec le ballon froid, sinon le thermostat coupe et tu ne verras rien. Et fais d'abord le test avec une ampoule.
 
-1. Régler le Shelly à 10, 20, 25, 30, 35, 40, 50… 100 %, attendre 10 s à chaque palier.
-2. Noter la puissance consommée (mesure réseau ou pince).
-3. **Seuil bas** = premier % où ça chauffe (~100 W).
-4. **Seuil haut** = % au-delà duquel la puissance n'augmente plus.
+1. Monte le Shelly par paliers : 10 %, 20 %, 25 %, 30 %, 35 %, 40 %, 50 %… jusqu'à 100 %. Attends une dizaine de secondes à chaque fois.
+2. À chaque palier, note la puissance consommée par le ballon (sur ta mesure réseau ou avec une pince ampèremétrique).
+3. Le premier pourcentage où le ballon se met à chauffer (environ 100 W), c'est ton minimum.
+4. Le pourcentage à partir duquel la puissance ne monte plus, c'est ton maximum.
 
-Chez moi : **≈ 100 W à 30 %**, ≈ +38 W par %, **plein régime vers 90 %**. La régulation HA travaille uniquement entre ces deux valeurs.
+Chez moi, le ballon commence à chauffer vers 30 % (environ 100 W) et il est à fond vers 90 %. Entre les deux, chaque pourcent ajoute environ 38 W. Dans Home Assistant, la régulation reste toujours entre ces deux valeurs.
 
 ## Sécurité
 
