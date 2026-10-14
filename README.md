@@ -57,3 +57,7 @@ Chez moi, le ballon commence à chauffer vers 30 % (environ 100 W) et il est à 
 - Terre sur le ballon d'eau chaude et le radiateur du LSA.
 - Le LSA n'a pas de protection thermique : radiateur et coffret ventilé obligatoires.
 - Test d'abord avec une ampoule à filament 60 W.
+
+## Contact
+
+devestebe@gmail.com

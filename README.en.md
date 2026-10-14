@@ -57,3 +57,7 @@ On my build: **≈ 100 W at 30 %**, ≈ +38 W per %, **full power around 90 %**.
 - Earth on the water heater and the LSA heat sink.
 - The LSA has no thermal protection: heat sink and ventilated enclosure required.
 - Test with a 60 W incandescent bulb first.
+
+## Contact
+
+devestebe@gmail.com
